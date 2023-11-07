@@ -34,20 +34,15 @@ class FJS {
     appendTo(element) {
         if(typeof element === typeof "")
             document.querySelector(element).append(this.element());
-        else if(typeof element === typeof FJS) {
+        else if(element instanceof FJS) {
             element.append(this.__element__);
         }
         return this;
     }
 
-    append(fObject) {
-        if(typeof fObject === typeof FJS) {
-            this.element().append(fObject.element());
-        } else if(typeof fObject === typeof []) {
-            for(let f of fObject) this.element().append(f.__element__);
-        } else {
-            console.error("Parameter is not FJS object.");
-        }
+    append(fObject, ...fObjects) {
+        fObjects.unshift(fObject);
+        for(let f of fObjects) this.element().append(f.__element__);
         return this;
     }
 
@@ -68,12 +63,13 @@ class FJS {
 
     style(styles = {}) {
         for(let style in styles) this.element().style[style] = styles[style];
+        return this;
     }
 
     attribute(name, value){
         if(typeof name === typeof "")
             this.element().setAttribute(name, value)
-        else if(typeof name === typeof {}) {
+        else if(typeof name == typeof {}) {
             for(let attr in name){
                 this.element().setAttribute(attr, name[attr])
             }
@@ -117,6 +113,22 @@ class FJS {
 
     element() {
         return this.__element__ ? this.__element__ : new FJS("undefine");
+    }
+
+    static css(link) {
+        document.querySelector("head").append(
+            (new FJS("link"))
+            .attribute({"rel":"stylesheet", "href":link})
+            .element()
+        )
+    }
+
+    static title(title) {
+        document.querySelector("head").append(
+            (new FJS("title"))
+            .text(title)
+            .element()
+        )
     }
 }
 

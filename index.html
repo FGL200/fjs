@@ -4,30 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
-
 <body>
-
     <script src="config/f.js"></script>
     <script>
+        FJS.css("assets/fjs/css/fjs.css");
+        FJS.css("assets/css/main.css");
+        FJS.title("HELLO");
+
+        const spanClass = "card p-2 m-2 gap-1 flex-row align-items-center";
+
         const form =
         f("form")
         .attribute({
-            "method":"post", 
+            "method":"post",  
             "class":"form-control"
         })
-        .append([
-            f("input")
-            .type("checkbox"),
+        .addClass("flex-row")
+        .append(
             f("span")
+            .addClass(spanClass)
             .append(
-                f("p")
+                f("input")
+                .attribute({"id":"id-gender", "name":"gender"})
+                .type("checkbox"),
+                f("label")
+                .attribute({"for":"id-gender"})
                 .text("Hello")
+            ),
+            f("span")
+            .addClass(spanClass)
+            .append(
+                f("input")
+                .attribute({"id":"id-name", "name":"name", "placeholder":"Hello"})
+                .style({"border":"none", "outline":"none"})
+                // .prop("readonly")
+                .type("text")
             )
-        ])
-        .appendTo("body")
-
+        )
+        .appendTo("body");
     </script>
 </body>
 
