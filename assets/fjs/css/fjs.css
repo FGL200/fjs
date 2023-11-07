@@ -1,41 +1,131 @@
 :root {
+
+    --color-white0 : #626567;
+    --color-white1 : #797D7F;
+    --color-white2 : #909497;
+    --color-white3 : #A6ACAF;
+    --color-white4 : #B3B6B7;
+    --color-white5 : #D0D3D4;
+    --color-white6 : #ECF0F1;
+    --color-white7 : #F0F3F4;
+    --color-white8 : #F4F6F7;
+    --color-white9 : #F7F9F9;
     
-    --color-black0 : rgba(0, 0, 0);
-    --color-black1 : rgba(0, 0, 0, 0.8);
-    --color-black2 : rgba(0, 0, 0, 0.6);
-    --color-black3 : rgba(0, 0, 0, 0.4);
-    --color-black4 : rgba(0, 0, 0, 0.2);
-    --color-black5 : rgba(0, 0, 0, 0.1);
-    --color-black6 : rgba(0, 0, 0, 0.075);
-    --color-black7 : rgba(0, 0, 0, 0.050);
-    --color-black8 : rgba(0, 0, 0, 0.025);
-    --color-black9 : rgba(0, 0, 0, 0.001);
+    --color-black0 : #000;
+    --color-black1 : #17202A;
+    --color-black2 : #1C2833;
+    --color-black3 : #212F3D;
+    --color-black4 : #2C3E50;
+    --color-black5 : #566573;
+    --color-black6 : #808B96;
+    --color-black7 : #ABB2B9;
+    --color-black8 : #D5D8DC ;
+    --color-black9 : #EAECEE ;
+    
+    --color-red0 : #641E16;
+    --color-red1 : #7B241C;
+    --color-red2 : #922B21;
+    --color-red3 : #A93226;
+    --color-red4 : #C0392B;
+    --color-red5 : #CB4335;
+    --color-red6 : #E74C3C;
+    --color-red7 : #EC7063;
+    --color-red8 : #F1948A;
+    --color-red9 : #F5B7B1;
+    
+    --color-green0 : #145A32;
+    --color-green1 : #196F3D;
+    --color-green2 : #1E8449;
+    --color-green3 : #229954;
+    --color-green4 : #27AE60;
+    --color-green5 : #28B463;
+    --color-green6 : #2ECC71;
+    --color-green7 : #58D68D;
+    --color-green8 : #82E0AA;
+    --color-green9 : #ABEBC6;
+    
+    --color-blue0 : #1B4F72;
+    --color-blue1 : #21618C;
+    --color-blue2 : #2874A6;
+    --color-blue3 : #2E86C1;
+    --color-blue4 : #3498DB;
+    --color-blue5 : #5DADE2;
+    --color-blue6 : #85C1E9;
+    --color-blue7 : #AED6F1;
+    --color-blue8 : #D6EAF8;
+    --color-blue9 : #EBF5FB;
+
+    --color-yellow0 : #7D6608;
+    --color-yellow1 : #9A7D0A;
+    --color-yellow2 : #B7950B;
+    --color-yellow3 : #D4AC0D;
+    --color-yellow4 : #F1C40F;
+    --color-yellow5 : #F4D03F;
+    --color-yellow6 : #F7DC6F;
+    --color-yellow7 : #F9E79F;
+    --color-yellow8 : #FCF3CF;
+    --color-yellow9 : #FEF9E7;
 }
+
+/* BUTTONS */
+.btn {
+    padding: .5rem 1.25rem;
+    border-radius: 5px;
+    transition: all .3s;
+    outline: none;
+}
+.btn.btn-default {
+    border: 1px  solid var(--color-black4);
+    background-color: var(--color-black9);
+}
+.btn.btn-default:focus { background-color: var(--color-black8); }
+.btn.btn-default:hover { background-color: var(--color-black7); }
+.btn.btn-default:active { background-color: var(--color-black6); }
 
 .btn.btn-primary {
-    
+    border: none;
+    background-color: var(--color-blue4) !important;
+    color: var(--color-white7);
 }
+.btn.btn-primary:focus { background-color: var(--color-blue5) !important; }
+.btn.btn-primary:hover { background-color: var(--color-blue6) !important; }
+.btn.btn-primary:active { background-color: var(--color-blue7) !important; }
+
 .btn.btn-secondary {
-    
+
 }
 .btn.btn-tertiary {
-    
+    text-decoration: underline;
 }
 
+/* CARD */
 .card {
     border-radius: 5px;
-    border: 1px solid var(--color-black4);
+    border: 1px solid var(--color-black4) !important;
+}
+.card input,
+.card select {
+    outline: none;
+    border: none;
 }
 .card:disabled{
     background-color: var(--color-black5);
     color: var(--color-black2);
 }
 
+/* TEXT ALIGNMENT */
+.text-center {text-align: center;}
+.text-left {text-align: left;}
+.text-right {text-align: right;}
+.text-justify {text-align: justify;}
+
+/* FLEX DIRECTION */
 .flex-row { display:  flex; flex-direction: row;}
 .flex-row-reverse { display:  flex; flex-direction: row-reverse;}
 .flex-column { display: flex; flex-direction:  column;}
 .flex-column-reverse { display: flex; flex-direction:  column-reverse;}
 
+/* JUSTIFY CONTENT */
 .justify-content-center {justify-content: center !important;}
 .justify-content-start {justify-content: flex-start !important;}
 .justify-content-end {justify-content: flex-end !important;}
@@ -43,6 +133,7 @@
 .justify-content-around {justify-content: space-around !important;}
 .justify-content-evenly {justify-content: space-evenly !important;}
 
+/* JUSTIFY CONTENT */
 .align-content-center {align-content: center !important;}
 .align-content-start {align-content: flex-start !important;}
 .align-content-end {align-content: flex-end !important;}
@@ -50,6 +141,7 @@
 .align-content-around {align-content: space-around !important;}
 .align-content-evenly {align-content: space-evenly !important;}
 
+/* JUSTIFY SELF */
 .justify-self-center {justify-self: center !important;}
 .justify-self-start {justify-self: flex-start !important;}
 .justify-self-end {justify-self: flex-end !important;}
@@ -57,29 +149,35 @@
 .justify-self-around {justify-self: space-around !important;}
 .justify-self-evenly {justify-self: space-evenly !important;}
 
+/* ALIGN CONTENT */
 .align-items-center {align-items: center;}
 .align-items-start {align-items: flex-start;}
 .align-items-end {align-items: flex-end;}
 
+/* ALIGN SELF */
 .align-self-center {align-self: center;}
 .align-self-start {align-self: flex-start;}
 .align-self-end {align-self: flex-end;}
 
+/* FLEX GROW */
 .flex-grow-1 {flex-grow: 1;}
 .flex-grow-2 {flex-grow: 2;}
 .flex-grow-3 {flex-grow: 3;}
 .flex-grow-4 {flex-grow: 4;}
 .flex-grow-5 {flex-grow: 5;}
 
+/* FLEX SHRINK */
 .flex-shrink-1 {flex-shrink: 1;}
 .flex-shrink-2 {flex-shrink: 2;}
 .flex-shrink-3 {flex-shrink: 3;}
 .flex-shrink-4 {flex-shrink: 4;}
 .flex-shrink-5 {flex-shrink: 5;}
 
+/* FLEX WRAP */
 .flex-wrap {flex-wrap: wrap;}
 .flex-nowrap {flex-wrap: nowrap;}
 
+/* GAP */
 .gap-0 {gap: 0;}
 .gap-1 {gap: 0.25rem;}
 .gap-2 {gap: 0.50rem;}
@@ -87,6 +185,7 @@
 .gap-4 {gap: 1.00rem;}
 .gap-5 {gap: 1.25rem;}
 
+/* PADDING */
 .p-0   {padding: 0.00rem !important;}
 .p-0-1 {padding: 0.00rem 0.25rem !important;}
 .p-0-2 {padding: 0.00rem 0.50rem !important;}
@@ -129,6 +228,7 @@
 .p-5-4 {padding: 1.25rem 1.00rem !important;}
 .p-5-5 {padding: 1.25rem 1.25rem !important;}
 
+/* MARGIN */
 .m-0   {margin: 0.00rem !important;}
 .m-0-1 {margin: 0.00rem 0.25rem !important;}
 .m-0-2 {margin: 0.00rem 0.50rem !important;}

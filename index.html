@@ -8,41 +8,53 @@
 <body>
     <script src="config/f.js"></script>
     <script>
-        FJS.css("assets/fjs/css/fjs.css");
-        FJS.css("assets/css/main.css");
-        FJS.title("HELLO");
+    FJS.css("assets/fjs/css/fjs.css");
+    FJS.css("assets/css/main.css");
+    FJS.title("HELLO");
 
-        const spanClass = "card p-2 m-2 gap-1 flex-row align-items-center";
+    const spanClass = "card p-2 m-2 gap-1 flex-row align-items-center";
 
-        const form =
-        f("form")
-        .attribute({
-            "method":"post",  
-            "class":"form-control"
-        })
-        .addClass("flex-row")
+    const form =
+    f("form")
+    .attribute({
+        "method":"post",
+    })
+    .addClass("flex-row card m-1")
+    .append(
+        f("span")
+        .addClass(spanClass)
         .append(
-            f("span")
-            .addClass(spanClass)
-            .append(
-                f("input")
-                .attribute({"id":"id-gender", "name":"gender"})
-                .type("checkbox"),
-                f("label")
-                .attribute({"for":"id-gender"})
-                .text("Hello")
-            ),
-            f("span")
-            .addClass(spanClass)
-            .append(
-                f("input")
-                .attribute({"id":"id-name", "name":"name", "placeholder":"Hello"})
-                .style({"border":"none", "outline":"none"})
-                // .prop("readonly")
-                .type("text")
-            )
+            f("input")
+            .attribute({"id":"id-gender", "name":"gender"})
+            .type("checkbox"),
+            f("label")
+            .attribute({"for":"id-gender"})
+            .text("Hello")
+        ),
+        f("span")
+        .addClass(spanClass)
+        .append(
+            f("input")
+            .attribute({"id":"id-name", "name":"name", "placeholder":"Hello"})
+            .type("text")
+        ),
+        f("button")
+        .addClass("btn btn-primary align-self-center")
+            .type("button")
+            .text("Login")
+            .on("click", ()=>{
+                form.trigger("submit");
+            })
         )
+        .on("submit", (e)=>{
+            e.preventDefault();
+            console.log("Hello")
+        })
         .appendTo("body");
+
+        showAlert({
+            buttons : ["okay", "no"]
+        });
     </script>
 </body>
 
